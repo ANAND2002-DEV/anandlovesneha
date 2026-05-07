@@ -1,4 +1,4 @@
-```html
+html
 <!doctype html>
 <html lang="en">
 
@@ -198,6 +198,7 @@ canvas{
   pointer-events:none;
 }
 
+```css id="moonfix2"
 #moonImg{
 
   width:100%;
@@ -207,7 +208,7 @@ canvas{
 
   object-fit:cover;
 
-  opacity:0.92;
+  opacity:0.82;
 
   transition:filter .6s ease;
 
@@ -221,10 +222,11 @@ canvas{
   rgba(0,0,0,1) 98%,
   rgba(0,0,0,0) 100%);
 
-  box-shadow:
-  0 0 70px rgba(255,255,255,0.12),
-  0 0 140px rgba(255,255,255,0.06);
+  filter:
+  brightness(0.72)
+  contrast(1.05);
 }
+```
 
 /* ===== TEXT ===== */
 
@@ -242,6 +244,16 @@ canvas{
   z-index:3;
 
   width:90%;
+  ```css id="textfix2"
+padding:25px;
+
+background:
+rgba(0,0,0,0.18);
+
+backdrop-filter:blur(8px);
+
+border-radius:25px;
+
 }
 
 h1{
