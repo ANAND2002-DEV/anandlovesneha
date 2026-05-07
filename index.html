@@ -869,3 +869,319 @@ Made by Anand for Sneha 💕
 
 </footer>
 ```
+```html id="cleanpart4"
+<script>
+
+/* ===== MUSIC ===== */
+
+const bg =
+document.getElementById("bg");
+
+const tap =
+document.getElementById("tap");
+
+bg.volume = 0.28;
+
+bg.play().catch(()=>{
+
+  tap.style.display = "block";
+});
+
+tap.onclick = ()=>{
+
+  bg.play();
+
+  tap.style.display = "none";
+};
+
+/* ===== ENVELOPE OPEN ===== */
+
+function openLetter(){
+
+  document.getElementById("intro")
+  .style.opacity = "0";
+
+  setTimeout(()=>{
+
+    document.getElementById("intro")
+    .style.display = "none";
+
+  },1500);
+
+  bg.play();
+}
+
+/* ===== SECRET ===== */
+
+function openSecret(){
+
+  document.getElementById("secret")
+  .style.display = "flex";
+}
+
+function closeSecret(){
+
+  document.getElementById("secret")
+  .style.display = "none";
+}
+
+/* ===== TYPEWRITER ===== */
+
+const typed =
+document.getElementById("typed");
+
+const text =
+`For the girl who became my peace,
+my moon,
+and my forever home.`;
+
+let index = 0;
+
+function typeWriter(){
+
+  if(index < text.length){
+
+    if(text.charAt(index) === '\n'){
+
+      typed.innerHTML += '<br>';
+
+    } else {
+
+      typed.innerHTML +=
+      text.charAt(index);
+    }
+
+    index++;
+
+    setTimeout(typeWriter,60);
+  }
+}
+
+setTimeout(typeWriter,1200);
+
+/* ===== STARS ===== */
+
+const sc =
+document.getElementById("stars");
+
+const ctx =
+sc.getContext("2d");
+
+function resize(){
+
+  sc.width = innerWidth;
+
+  sc.height = innerHeight;
+}
+
+resize();
+
+addEventListener("resize",resize);
+
+let stars =
+[...Array(100)].map(()=>({
+
+  x:Math.random()*innerWidth,
+
+  y:Math.random()*innerHeight,
+
+  r:Math.random()*1.4+0.2,
+
+  p:Math.random()*Math.PI*2
+
+}));
+
+function drawStars(){
+
+  ctx.clearRect(0,0,sc.width,sc.height);
+
+  for(const s of stars){
+
+    s.p += 0.005;
+
+    ctx.fillStyle =
+    `rgba(255,255,255,${
+      0.3+0.3*Math.sin(s.p)
+    })`;
+
+    ctx.beginPath();
+
+    ctx.arc(
+      s.x,
+      s.y,
+      s.r,
+      0,
+      Math.PI*2
+    );
+
+    ctx.fill();
+  }
+
+  requestAnimationFrame(drawStars);
+}
+
+requestAnimationFrame(drawStars);
+
+/* ===== ROSES ===== */
+
+const roseContainer =
+document.getElementById("roseContainer");
+
+for(let i=0;i<22;i++){
+
+  const rose =
+  document.createElement("div");
+
+  rose.classList.add("rose");
+
+  rose.innerHTML = "🌹";
+
+  rose.style.left =
+  Math.random()*100 + "vw";
+
+  rose.style.fontSize =
+  (Math.random()*10 + 12) + "px";
+
+  rose.style.animationDuration =
+  (Math.random()*10 + 12) + "s";
+
+  roseContainer.appendChild(rose);
+}
+
+/* ===== MOON PHASE ===== */
+
+const moon =
+document.getElementById("moonImg");
+
+const wrap =
+document.getElementById("moonWrap");
+
+function phase(){
+
+  const now = new Date();
+
+  let y = now.getFullYear();
+
+  let m = now.getMonth()+1;
+
+  let d = now.getDate();
+
+  if(m<3){
+
+    y--;
+
+    m += 12;
+  }
+
+  const k1 =
+  Math.floor(365.25*(y+4712));
+
+  const k2 =
+  Math.floor(30.6001*(m+1));
+
+  const jd =
+  k1+k2+d-1524.5+
+  (now.getHours()/24);
+
+  const syn = 29.53058867;
+
+  let days =
+  (jd-2451549.5)%syn;
+
+  if(days<0) days += syn;
+
+  const p = days/syn;
+
+  const n = p*2-1;
+
+  const off = 50+n*28;
+
+  const shade =
+  Math.abs(n)*0.8;
+
+  const mask =
+
+  `radial-gradient(
+    circle at 50% 50%,
+    rgba(0,0,0,0) 0%,
+    rgba(0,0,0,${
+      0.1+shade*0.3
+    }) 55%,
+    rgba(0,0,0,0.95) 100%
+  ),
+
+  linear-gradient(
+    90deg,
+    rgba(0,0,0,0.95)
+    ${off}%,
+
+    rgba(0,0,0,0)
+    ${off+8}%
+  )`;
+
+  moon.style.webkitMaskImage =
+  mask;
+
+  moon.style.maskImage =
+  mask;
+
+  const bright =
+  0.9+0.3*Math.sin(p*Math.PI);
+
+  moon.style.filter =
+  `brightness(${bright})
+   contrast(1.05)`;
+}
+
+phase();
+
+setInterval(phase,60000);
+
+/* ===== FLOATING MOON ===== */
+
+let t0 = performance.now();
+
+function pulse(){
+
+  const t =
+  (performance.now()-t0)/1000;
+
+  const s =
+  1+0.02*Math.sin(t*1.5);
+
+  const fx =
+  Math.sin(t*0.12)*6;
+
+  const fy =
+  Math.cos(t*0.1)*4;
+
+  wrap.style.transform =
+
+  `translate(
+    calc(-50% + ${fx}px),
+    calc(-50% + ${fy}px)
+  )
+  scale(${s})`;
+
+  requestAnimationFrame(pulse);
+}
+
+pulse();
+
+/* ===== SINGLE MESSAGE ===== */
+
+const msg =
+document.getElementById("msg");
+
+msg.style.opacity = 1;
+
+msg.innerHTML = `
+No matter how far apart we are...<br>
+we still look at the same moon 🌙
+`;
+
+</script>
+
+</body>
+</html>
+```
