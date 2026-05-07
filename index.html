@@ -1,0 +1,477 @@
+html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Anand × Sneha ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#040404;
+    color:white;
+    overflow-x:hidden;
+    font-family:'Poppins',sans-serif;
+}
+
+section{
+    min-height:100vh;
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    position:relative;
+    padding:60px 20px;
+}
+
+.stars{
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    z-index:-1;
+    overflow:hidden;
+}
+
+.star{
+    position:absolute;
+    width:2px;
+    height:2px;
+    background:white;
+    border-radius:50%;
+    opacity:0.8;
+    animation:twinkle 5s infinite ease-in-out;
+}
+
+@keyframes twinkle{
+    0%,100%{opacity:0.2;transform:scale(1);}
+    50%{opacity:1;transform:scale(1.5);}
+}
+
+.hero h1{
+    font-size:4rem;
+    color:#ff4d6d;
+    font-family:'Great Vibes',cursive;
+    text-shadow:0 0 25px rgba(255,77,109,0.8);
+    text-align:center;
+}
+
+.hero p{
+    margin-top:15px;
+    font-size:1.1rem;
+    opacity:0.9;
+    text-align:center;
+}
+
+.main-photo{
+    width:300px;
+    max-width:90%;
+    border-radius:25px;
+    margin-top:35px;
+    box-shadow:0 0 35px rgba(255,0,90,0.5);
+    animation:glow 4s infinite alternate;
+}
+
+@keyframes glow{
+    from{box-shadow:0 0 20px rgba(255,0,90,0.3);}
+    to{box-shadow:0 0 45px rgba(255,0,90,0.8);}
+}
+
+.countdown{
+    margin-top:25px;
+    font-size:1.1rem;
+    color:#ffd6df;
+    text-align:center;
+}
+
+.music-btn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:999;
+    border:none;
+    background:#ff4d6d;
+    color:white;
+    padding:12px 20px;
+    border-radius:40px;
+    cursor:pointer;
+    font-weight:600;
+    box-shadow:0 0 20px rgba(255,77,109,0.5);
+}
+
+.page-title{
+    font-size:2.5rem;
+    color:#ff6b81;
+    margin-bottom:25px;
+    text-align:center;
+}
+
+.text-box{
+    max-width:850px;
+    text-align:center;
+    line-height:2;
+    font-size:1.05rem;
+    opacity:0.92;
+}
+
+.gallery{
+    width:100%;
+    max-width:1200px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+    margin-top:40px;
+}
+
+.gallery img{
+    width:100%;
+    border-radius:22px;
+    transition:0.5s;
+    box-shadow:0 0 20px rgba(255,255,255,0.08);
+}
+
+.gallery img:hover{
+    transform:scale(1.05);
+}
+
+.nickname{
+    position:absolute;
+    font-family:'Great Vibes',cursive;
+    color:#ff8fa3;
+    opacity:0.15;
+    font-size:2rem;
+    animation:floatUp linear infinite;
+}
+
+@keyframes floatUp{
+    from{transform:translateY(100vh);}
+    to{transform:translateY(-120vh);}
+}
+
+.love-letter{
+    width:100%;
+    max-width:950px;
+    background:rgba(255,255,255,0.04);
+    border-radius:30px;
+    padding:50px 35px;
+    backdrop-filter:blur(10px);
+    box-shadow:0 0 35px rgba(255,0,90,0.15);
+}
+
+.love-letter h2{
+    text-align:center;
+    font-size:3.2rem;
+    margin-bottom:35px;
+    color:#ff4d6d;
+    font-family:'Great Vibes',cursive;
+}
+
+.love-letter p{
+    line-height:2.2;
+    font-size:1.08rem;
+}
+
+.final-line{
+    margin-top:40px;
+    text-align:center;
+    font-size:1.8rem;
+    color:#ff9fb0;
+    font-family:'Great Vibes',cursive;
+}
+
+.hidden-heart{
+    position:fixed;
+    left:20px;
+    bottom:20px;
+    font-size:2rem;
+    cursor:pointer;
+    z-index:999;
+    opacity:0.4;
+    transition:0.3s;
+}
+
+.hidden-heart:hover{
+    opacity:1;
+    transform:scale(1.15);
+}
+
+.secret-message{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.94);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+    padding:30px;
+    z-index:9999;
+}
+
+.secret-message h3{
+    font-size:3rem;
+    color:#ff4d6d;
+    margin-bottom:20px;
+}
+
+.secret-message p{
+    max-width:700px;
+    line-height:2;
+}
+
+.close-btn{
+    margin-top:30px;
+    border:none;
+    background:#ff4d6d;
+    color:white;
+    padding:12px 25px;
+    border-radius:30px;
+    cursor:pointer;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:3rem;
+}
+
+.page-title{
+    font-size:2rem;
+}
+
+.love-letter{
+    padding:35px 22px;
+}
+
+.love-letter h2{
+    font-size:2.5rem;
+}
+
+.love-letter p{
+    font-size:0.98rem;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<div class="stars"></div>
+
+<button class="music-btn" onclick="toggleMusic()">🎵 Music</button>
+
+<audio id="bgMusic" loop>
+    <source src="main.mp3" type="audio/mp3">
+</audio>
+
+<div class="hidden-heart" onclick="openSecret()">❤️</div>
+
+<div class="secret-message" id="secretBox">
+    <h3>I Love You</h3>
+
+    <p>
+        No matter how far apart we are...<br><br>
+        You are still the closest person to my heart.<br><br>
+        Distance can never change the way I love you, Ai ❤️
+    </p>
+
+    <button class="close-btn" onclick="closeSecret()">Close</button>
+</div>
+
+<div class="nickname" style="left:10%; animation-duration:15s;">Ai 🌸</div>
+<div class="nickname" style="left:28%; animation-duration:18s;">Moon 🌙</div>
+<div class="nickname" style="left:55%; animation-duration:20s;">Princess 👑</div>
+<div class="nickname" style="left:78%; animation-duration:16s;">Priyee 💌</div>
+
+<section class="hero">
+
+<h1>Anand × Sneha</h1>
+
+<p>
+A love story written across distance ❤️
+</p>
+
+<img src="photos/photo1.jpg" class="main-photo" alt="Sneha">
+
+<div class="countdown" id="countdown"></div>
+
+</section>
+
+<section>
+
+<h2 class="page-title">To My Ai 🌙</h2>
+
+<div class="text-box">
+Somewhere between late-night talks, emotional moments, and endless distance...<br><br>
+You slowly became my favorite person.<br><br>
+Loving you feels soft, peaceful, emotional, and magical all at once.
+</div>
+
+</section>
+
+<section>
+
+<h2 class="page-title">Our Memories 💌</h2>
+
+<div class="gallery">
+<img src="photos/photo2.jpg" alt="photo">
+<img src="photos/photo3.jpg" alt="photo">
+<img src="photos/photo4.jpg" alt="photo">
+<img src="photos/photo5.jpg" alt="photo">
+<img src="photos/photo6.jpg" alt="photo">
+<img src="photos/photo7.jpg" alt="photo">
+<img src="photos/photo8.jpg" alt="photo">
+<img src="photos/photo9.jpg" alt="photo">
+<img src="photos/photo10.jpg" alt="photo">
+</div>
+
+</section>
+
+<section>
+
+<h2 class="page-title">9 October 2025 ☎️</h2>
+
+<div class="text-box">
+The first time I heard your voice...<br><br>
+It felt strange in the best way possible.<br><br>
+Like my heart already knew you before my mind did.
+</div>
+
+</section>
+
+<section>
+
+<div class="love-letter">
+
+<h2>My Last Love Letter ❤️</h2>
+
+<p>
+My Ai,<br><br>
+
+Sometimes I wonder how someone so far away became the closest person to my heart.<br><br>
+
+We may live in different places, sleep under different skies, and wait through endless distances… but somehow your love still reaches me every single day.<br><br>
+
+You became my comfort in silence, my peace during hard days, and the reason ordinary moments started feeling beautiful again.<br><br>
+
+I still remember our first call on 9 October like it was yesterday.<br><br>
+
+Hearing your voice felt strange in the best way possible… like my heart already knew you before my mind did.<br><br>
+
+And slowly, without realizing it, you became my home.<br><br>
+
+Ai… Priyee… my Moon… my Princess…<br><br>
+
+I love every version of you.<br>
+Your smile.<br>
+Your voice.<br>
+Your little moods.<br>
+Your care.<br>
+Even the moments when you overthink or get emotional.<br><br>
+
+Distance is hard sometimes.<br>
+Really hard.<br><br>
+
+There are days when I wish I could simply hold your hand, sit beside you quietly, or just look at you without a screen between us.<br><br>
+
+But even after all that…<br>
+even after the waiting, the missing, and the silence…<br>
+my heart still chooses you every single time.<br><br>
+
+You once told me that you would always stay with me and love me.<br>
+So today, I want to promise you something too.<br><br>
+
+No matter how much distance exists between us…<br>
+no matter how life changes…<br>
+no matter how many years pass…<br>
+I will always love you.<br><br>
+
+In every late-night thought.<br>
+In every song.<br>
+In every star I look at.<br>
+In every version of my future…<br>
+there is always you.<br><br>
+
+And if someday the universe gives me another life again…<br>
+I think I would still search for your soul in every crowd until I found you.<br><br>
+
+Forever yours,<br>
+Anand ❤️
+</p>
+
+<div class="final-line">
+“I will always love you no matter how far apart we live.”
+</div>
+
+</div>
+
+</section>
+
+<script>
+
+const starsContainer = document.querySelector('.stars');
+
+for(let i = 0; i < 200; i++){
+    const star = document.createElement('div');
+    star.classList.add('star');
+
+    star.style.left = Math.random() * 100 + 'vw';
+    star.style.top = Math.random() * 100 + 'vh';
+    star.style.animationDuration = (Math.random() * 5 + 3) + 's';
+
+    starsContainer.appendChild(star);
+}
+
+const startDate = new Date('2025-10-02T00:00:00');
+const countdown = document.getElementById('countdown');
+
+function updateCountdown(){
+
+    const now = new Date();
+    const diff = now - startDate;
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+    countdown.innerHTML = `❤️ Together Since 2 October 2025 — ${days} Days ❤️`;
+}
+
+updateCountdown();
+setInterval(updateCountdown,1000);
+
+const music = document.getElementById('bgMusic');
+
+function toggleMusic(){
+
+    if(music.paused){
+        music.play();
+    } else {
+        music.pause();
+    }
+}
+
+function openSecret(){
+    document.getElementById('secretBox').style.display = 'flex';
+}
+
+function closeSecret(){
+    document.getElementById('secretBox').style.display = 'none';
+}
+
+</script>
+
+</body>
+</html>
+```
+
