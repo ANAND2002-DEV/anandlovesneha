@@ -1,4 +1,4 @@
-html
+```html
 <!doctype html>
 <html lang="en">
 
@@ -176,7 +176,28 @@ canvas{
 
 /* ===== MOON ===== */
 
-```css id="moonfix1"
+#moonWrap{
+
+  position:fixed;
+
+  top:44%;
+  left:50%;
+
+  transform:translate(-50%,-50%);
+
+  aspect-ratio:1/1;
+
+  width:min(68vmin,86vw);
+
+  border-radius:50%;
+
+  overflow:hidden;
+
+  z-index:1;
+
+  pointer-events:none;
+}
+
 #moonImg{
 
   width:100%;
@@ -204,38 +225,6 @@ canvas{
   0 0 70px rgba(255,255,255,0.12),
   0 0 140px rgba(255,255,255,0.06);
 }
-```
-
-
-```css id="moonfix2"
-#moonImg{
-
-  width:100%;
-  height:100%;
-
-  border-radius:50%;
-
-  object-fit:cover;
-
-  opacity:0.82;
-
-  transition:filter .6s ease;
-
-  -webkit-mask-image:
-  radial-gradient(circle,
-  rgba(0,0,0,1) 98%,
-  rgba(0,0,0,0) 100%);
-
-  mask-image:
-  radial-gradient(circle,
-  rgba(0,0,0,1) 98%,
-  rgba(0,0,0,0) 100%);
-
-  filter:
-  brightness(0.52)
-  contrast(1.05);
-}
-```
 
 /* ===== TEXT ===== */
 
@@ -253,8 +242,6 @@ canvas{
   z-index:3;
 
   width:90%;
-  css id="textfix2"
-
 }
 
 h1{
@@ -794,64 +781,91 @@ My Last Love Letter ❤️
 
 <div class="letter-text">
 
-My LOVE,
+My Ai,
 
 Sometimes I wonder how someone
 so far away became the closest person to my heart.
-We may live under different skies, wait through long nights,
+
+We may live under different skies,
+wait through long nights,
 and love each other through screens and distance...
+
 but somehow your love still reaches me every single day.
+
 You became my peace in chaos.
+
 My comfort in silence.
 
 And the reason ordinary moments
 started feeling beautiful again.
 
 Ai...
+
 Priyee...
+
 My Moon...
+
 My Princess...
-My Everything...
 
 I love every version of you.
-    
+
 Your smile.
+
 Your voice.
+
 Your care.
+
 Even your emotional little moments.
+
 Distance is hard sometimes.
+
 Really hard.
 
-There are days when I wish I could simply hold your hand,
-sit beside you quietly, or just look at you
+There are days when I wish
+I could simply hold your hand,
+
+sit beside you quietly,
+
+or just look at you
 without a screen between us.
-    
+
 But even after all the waiting...
+
 all the missing...
+
 and all the distance...
+
 my heart still chooses you
 every single time.
 
 You once told me
-    
 that you would always stay with me
 and love me.
 
 So today...
 
 I want to promise you something too.
+
 No matter how far apart we live...
+
 No matter how life changes...
+
 No matter how many years pass...
 
 I will always love you.
+
 In every late-night thought.
+
 In every song.
+
 In every star I look at.
+
 In every version of my future...
+
 there is always you.
 
 And if the universe gives me another life someday...
+
 I think I would still search
 for your soul in every crowd
 until I found you.
