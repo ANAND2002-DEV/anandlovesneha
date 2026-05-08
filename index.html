@@ -194,9 +194,11 @@ canvas{
   border-radius:50%;
 
   opacity:0.84;
+  
+box-shadow:
+0 0 45px rgba(255,255,255,0.05),
+0 0 90px rgba(255,220,230,0.04);
 
-  box-shadow:
-  0 0 100px rgba(255,255,255,0.08);
 }
 
 /* ===== FADE UI ===== */
@@ -455,10 +457,11 @@ h1{
 .memory-card{
 
   background:
-  rgba(255,255,255,0.06);
-
+  rgba(255,225,235,0.07);
+  
   border:
-  1px solid rgba(255,255,255,0.12);
+  1px solid rgba(255,220,230,0.14);
+
 
   border-radius:24px;
 
@@ -652,6 +655,7 @@ My comfort person
   z-index:5;
 }
 
+
 .letter-box{
 
   max-width:950px;
@@ -659,22 +663,28 @@ My comfort person
   margin:auto;
 
   background:
-  rgba(255,255,255,0.07);
+  linear-gradient(
+    135deg,
+    rgba(255,235,242,0.10),
+    rgba(255,215,225,0.06)
+  );
 
   border:
-  1px solid rgba(255,255,255,0.12);
+  1px solid rgba(255,220,230,0.22);
 
   border-radius:32px;
 
   padding:60px 40px;
 
-  backdrop-filter:blur(18px);
+  backdrop-filter:blur(20px);
 
-  -webkit-backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(20px);
 
   box-shadow:
-  0 0 40px rgba(0,0,0,0.45);
+  0 0 45px rgba(255,180,210,0.10),
+  0 0 80px rgba(255,160,200,0.05);
 }
+
 
 .letter-title{
 
