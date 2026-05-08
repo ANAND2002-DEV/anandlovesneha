@@ -1028,6 +1028,65 @@ function drawStars(){
 
 requestAnimationFrame(drawStars);
 
+
+/* ===== MOON PHASE ===== */
+
+const moon =
+document.getElementById("moonImg");
+
+function phase(){
+
+  const now = new Date();
+
+  let y = now.getFullYear();
+
+  let m = now.getMonth()+1;
+
+  let d = now.getDate();
+
+  if(m < 3){
+
+    y--;
+
+    m += 12;
+  }
+
+  const k1 =
+  Math.floor(365.25*(y+4712));
+
+  const k2 =
+  Math.floor(30.6001*(m+1));
+
+  const jd =
+  k1+k2+d-1524.5+
+  (now.getHours()/24);
+
+  const syn = 29.53058867;
+
+  let days =
+  (jd-2451549.5)%syn;
+
+  if(days < 0){
+
+    days += syn;
+  }
+
+  const p = days/syn;
+
+  const bright =
+  0.50 + 0.12 *
+  Math.sin(p * Math.PI);
+
+  moon.style.filter =
+  `brightness(${bright})
+   contrast(1.08)`;
+}
+
+phase();
+
+setInterval(phase,60000);
+
+
 /* ===== MOON FLOAT ===== */
 
 const wrap =
