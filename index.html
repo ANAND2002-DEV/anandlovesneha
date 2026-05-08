@@ -31,11 +31,12 @@ html{
 
 body{
 
-  background:
-  radial-gradient(circle at 50% 20%,
-  #1a0f36 0%,
-  #08021b 60%,
-  #020010 100%);
+background:
+radial-gradient(circle at top,
+#2b1055 0%,
+#12001f 35%,
+#05010f 65%,
+#000000 100%);
 
   font-family:"Poppins",sans-serif;
 
@@ -964,6 +965,7 @@ function typeWriter(){
 
 setTimeout(typeWriter,1200);
 
+  
 /* ===== STARS ===== */
 
 const sc =
@@ -996,9 +998,42 @@ let stars =
 
 }));
 
-function drawStars(){
+/* ===== COMETS ===== */
+
+const comets = [];
+
+function createComet(){
+
+  comets.push({
+
+    x:Math.random()*innerWidth,
+
+    y:-100,
+
+    len:Math.random()*120+80,
+
+    speed:Math.random()*12+8,
+
+    life:0
+  });
+}
+
+setInterval(()=>{
+
+  if(Math.random() > 0.55){
+
+    createComet();
+  }
+
+},2200);
+
+/* ===== DRAW ===== */
+
+function drawScene(){
 
   ctx.clearRect(0,0,sc.width,sc.height);
+
+  /* STARS */
 
   for(const s of stars){
 
@@ -1006,7 +1041,7 @@ function drawStars(){
 
     ctx.fillStyle =
     `rgba(255,255,255,${
-      0.3+0.3*Math.sin(s.p)
+      0.15+0.85*Math.sin(s.p)
     })`;
 
     ctx.beginPath();
@@ -1022,11 +1057,63 @@ function drawStars(){
     ctx.fill();
   }
 
-  requestAnimationFrame(drawStars);
+  /* COMETS */
+
+  for(let i=comets.length-1;i>=0;i--){
+
+    const c = comets[i];
+
+    c.x += c.speed;
+
+    c.y += c.speed;
+
+    c.life++;
+
+    const grad =
+    ctx.createLinearGradient(
+      c.x,c.y,
+      c.x-c.len,
+      c.y-c.len
+    );
+
+    grad.addColorStop(
+      0,
+      "rgba(255,255,255,0.9)"
+    );
+
+    grad.addColorStop(
+      1,
+      "rgba(255,255,255,0)"
+    );
+
+    ctx.beginPath();
+
+    ctx.strokeStyle = grad;
+
+    ctx.lineWidth = 2;
+
+    ctx.moveTo(c.x,c.y);
+
+    ctx.lineTo(
+      c.x-c.len,
+      c.y-c.len
+    );
+
+    ctx.stroke();
+
+    if(c.life > 80){
+
+      comets.splice(i,1);
+    }
+  }
+
+  requestAnimationFrame(drawScene);
 }
 
-requestAnimationFrame(drawStars);
+drawScene();
 
+
+  
 /* ===== MOON PHASE ===== */
 
 const moon =
