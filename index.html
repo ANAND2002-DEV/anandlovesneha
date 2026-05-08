@@ -288,7 +288,6 @@ h1{
   z-index:3;
 }
 
-
 /* ===== MUSIC ===== */
 
 .music-controls{
@@ -481,6 +480,8 @@ h1{
   backdrop-filter:blur(14px);
 
   transition:0.45s;
+
+  cursor:pointer;
 }
 
 .memory-card:hover{
@@ -509,6 +510,67 @@ h1{
   font-size:18px;
 
   font-family:'Cormorant Garamond',serif;
+}
+
+/* ===== IMAGE POPUP ===== */
+
+.image-popup{
+
+  position:fixed;
+
+  inset:0;
+
+  background:
+  rgba(0,0,0,0.82);
+
+  backdrop-filter:blur(12px);
+
+  -webkit-backdrop-filter:blur(12px);
+
+  display:none;
+
+  justify-content:center;
+
+  align-items:center;
+
+  z-index:9999999;
+
+  padding:20px;
+}
+
+.image-popup img{
+
+  max-width:92%;
+
+  max-height:90vh;
+
+  border-radius:26px;
+
+  object-fit:cover;
+
+  box-shadow:
+  0 0 45px rgba(255,200,220,0.12);
+
+  animation:popupZoom .35s ease;
+}
+
+@keyframes popupZoom{
+
+  from{
+
+    transform:
+    scale(0.82);
+
+    opacity:0;
+  }
+
+  to{
+
+    transform:
+    scale(1);
+
+    opacity:1;
+  }
 }
 
 </style>
@@ -652,6 +714,7 @@ My comfort person 🤍
 
 </section>
 
+```html id="h7x4rn"
 <style>
 
 /* ===== LETTER ===== */
@@ -913,6 +976,285 @@ The girl I’ll always choose 🤍
 Made by Anand for Sneha ❤️
 
 </footer>
+
+<!-- IMAGE POPUP -->
+
+<div class="image-popup" id="popup">
+
+  <img id="popupImg">
+
+</div>
+
+  
+<style>
+
+/* ===== LETTER ===== */
+
+.final-section{
+
+  position:relative;
+
+  padding:120px 20px;
+
+  z-index:5;
+}
+
+.letter-box{
+
+  max-width:950px;
+
+  margin:auto;
+
+  background:
+  linear-gradient(
+    145deg,
+    rgba(255,235,242,0.12),
+    rgba(255,215,225,0.05)
+  );
+
+  border:
+  1px solid rgba(255,220,230,0.16);
+
+  border-radius:34px;
+
+  padding:65px 45px;
+
+  backdrop-filter:blur(22px);
+
+  -webkit-backdrop-filter:blur(22px);
+
+  box-shadow:
+  0 0 35px rgba(255,170,200,0.06),
+  0 0 80px rgba(255,150,190,0.03);
+}
+
+.letter-title{
+
+  text-align:center;
+
+  font-size:
+  clamp(42px,5vw,70px);
+
+  margin-bottom:45px;
+
+  color:#ffdbe5;
+
+  font-family:'Great Vibes',cursive;
+}
+
+.letter-text{
+
+  line-height:2.15;
+
+  font-size:
+  clamp(18px,2vw,28px);
+
+  color:#fff5f7;
+
+  white-space:pre-line;
+
+  text-shadow:
+  0 0 10px rgba(0,0,0,0.28);
+
+  font-family:'Cormorant Garamond',serif;
+
+  letter-spacing:0.4px;
+
+  font-weight:400;
+}
+
+.signature{
+
+  margin-top:50px;
+
+  text-align:right;
+
+  font-size:2.2rem;
+
+  color:#ffd6df;
+
+  font-family:'Great Vibes',cursive;
+}
+
+.ending{
+
+  margin-top:40px;
+
+  text-align:center;
+
+  font-size:2rem;
+
+  color:#ffc7d7;
+
+  font-family:'Cormorant Garamond',serif;
+}
+
+footer{
+
+  text-align:center;
+
+  padding:35px;
+
+  color:
+  rgba(255,255,255,0.65);
+
+  position:relative;
+
+  z-index:5;
+}
+
+</style>
+
+<section class="final-section">
+
+<div class="letter-box">
+
+<h2 class="letter-title">
+My Love Letter ❤️
+</h2>
+
+<div class="letter-text">
+
+MY LOVE SNEHA ❤️,
+
+Sometimes I wonder how someone
+so far away became the closest person to my heart.
+
+We may live under different skies 🌃,
+wait through long nights,
+and love each other through screens and distance...
+
+but somehow your love still reaches me every single day ✨
+
+You became my peace in chaos.
+My comfort in silence.
+And the reason ordinary moments
+started feeling beautiful again.
+
+Ai...
+Priyee...
+My Moon 🌙
+My Princess ✨
+
+I love every version of you.
+
+Your smile.
+Your voice.
+Your care.
+Even your emotional little moments ❤️
+
+Distance is hard sometimes.
+
+There are days when I wish
+I could simply hold your hand,
+sit beside you quietly,
+or just look at you
+without a screen between us.
+
+But even after all the waiting...
+all the missing...
+and all the distance...
+my heart still chooses you
+every single time ❤️
+
+You once told me
+that you would always stay with me
+and love me ❤️
+
+So today...
+I want to promise you something too.
+
+No matter how far apart we live...
+No matter how life changes...
+No matter how many years pass...
+
+I will always love you ❤️
+
+In every late-night thought.
+In every song.
+In every star I look at ✨
+
+And if the universe gives me another life someday...
+
+I think I would still search
+for your soul in every crowd
+until I found you ❤️
+
+♡
+
+</div>
+
+<div class="signature">
+
+Forever Yours,<br>
+Anand ❤️
+
+</div>
+
+<div class="ending">
+
+“In every universe,
+I still choose you.”
+
+</div>
+
+</div>
+
+</section>
+
+<section class="memory-section">
+
+<h2 class="memory-title">
+More Memories ✨
+</h2>
+
+<div class="memories">
+
+<div class="memory-card">
+<img src="photos/photo5.jpg">
+<div class="memory-caption">
+My favorite eyes ✨
+</div>
+</div>
+
+<div class="memory-card">
+<img src="photos/photo6.jpg">
+<div class="memory-caption">
+Pretty girl forever 🌙
+</div>
+</div>
+
+<div class="memory-card">
+<img src="photos/photo7.jpg">
+<div class="memory-caption">
+My heart feels home with you ❤️
+</div>
+</div>
+
+<div class="memory-card">
+<img src="photos/photo8.jpg">
+<div class="memory-caption">
+The girl I’ll always choose 🤍
+</div>
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+Made by Anand for Sneha ❤️
+
+</footer>
+
+<!-- IMAGE POPUP -->
+
+<div class="image-popup" id="popup">
+
+  <img id="popupImg">
+
+</div>
 
 
 <script>
@@ -1235,9 +1577,36 @@ window.addEventListener("scroll",()=>{
   }
 });
 
+/* ===== IMAGE POPUP ===== */
+
+const popup =
+document.getElementById("popup");
+
+const popupImg =
+document.getElementById("popupImg");
+
+const galleryImages =
+document.querySelectorAll(".memory-card img");
+
+galleryImages.forEach(img=>{
+
+  img.onclick = ()=>{
+
+    popup.style.display = "flex";
+
+    popupImg.src = img.src;
+  };
+});
+
+popup.onclick = ()=>{
+
+  popup.style.display = "none";
+};
+
 </script>
 
 </body>
 </html>
+
 
 
