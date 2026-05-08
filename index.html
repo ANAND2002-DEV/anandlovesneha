@@ -33,12 +33,16 @@ html{
 body{
 
   background:
-  radial-gradient(circle at top,
-  rgba(40,40,55,0.12) 0%,
-  rgba(10,10,20,0.35) 18%,
-  #050505 45%,
-  #000000 75%,
-  #000000 100%);
+  radial-gradient(
+    ellipse at top,
+    rgba(35,25,35,0.16) 0%,
+    rgba(10,10,15,0.45) 18%,
+    #050505 42%,
+    #010101 72%,
+    #000000 100%
+  );
+
+  background-color:#000;
 
   background-attachment:fixed;
 
@@ -48,8 +52,6 @@ body{
 
   overflow-x:hidden;
 }
-
-
 
 canvas{
 
@@ -73,7 +75,7 @@ canvas{
 
   inset:0;
 
-  background:#020010;
+  background:#000;
 
   display:flex;
 
@@ -104,7 +106,7 @@ canvas{
   cursor:pointer;
 
   box-shadow:
-  0 0 50px rgba(255,0,90,0.25);
+  0 0 40px rgba(255,120,170,0.14);
 
   animation:pulse 3s infinite;
 }
@@ -146,7 +148,7 @@ canvas{
 
   letter-spacing:4px;
 
-  opacity:0.7;
+  opacity:0.65;
 
   font-size:12px;
 }
@@ -193,15 +195,18 @@ canvas{
 
   border-radius:50%;
 
-  opacity:0.84;
-  
-box-shadow:
-0 0 45px rgba(255,255,255,0.05),
-0 0 90px rgba(255,220,230,0.04);
+  opacity:0.82;
 
+  filter:
+  brightness(0.78)
+  contrast(1.08);
+
+  box-shadow:
+  0 0 25px rgba(255,255,255,0.04),
+  0 0 60px rgba(255,210,225,0.03);
 }
 
-/* ===== FADE UI ===== */
+/* ===== FADE ===== */
 
 .fade-ui{
 
@@ -234,10 +239,10 @@ h1{
 
   font-family:'Great Vibes',cursive;
 
-  color:#fff4f7;
+  color:#fff5f7;
 
   text-shadow:
-  0 0 18px rgba(0,0,0,0.95);
+  0 0 16px rgba(0,0,0,0.9);
 }
 
 .subtitle{
@@ -252,7 +257,7 @@ h1{
   line-height:1.8;
 
   text-shadow:
-  0 0 15px rgba(0,0,0,0.95);
+  0 0 14px rgba(0,0,0,0.9);
 }
 
 /* ===== MESSAGE ===== */
@@ -278,7 +283,7 @@ h1{
   line-height:1.8;
 
   text-shadow:
-  0 0 18px rgba(0,0,0,0.95);
+  0 0 16px rgba(0,0,0,0.95);
 
   z-index:3;
 }
@@ -311,7 +316,7 @@ h1{
   border-radius:999px;
 
   background:
-  rgba(255,255,255,0.12);
+  rgba(255,235,242,0.10);
 
   color:white;
 
@@ -322,12 +327,15 @@ h1{
   transition:0.3s;
 
   font-size:14px;
+
+  border:
+  1px solid rgba(255,220,230,0.12);
 }
 
 .music-controls button:hover{
 
   background:
-  rgba(255,255,255,0.22);
+  rgba(255,225,235,0.16);
 }
 
 /* ===== SECRET ===== */
@@ -355,7 +363,7 @@ h1{
   inset:0;
 
   background:
-  rgba(0,0,0,0.95);
+  rgba(0,0,0,0.96);
 
   display:none;
 
@@ -457,19 +465,22 @@ h1{
 .memory-card{
 
   background:
-  rgba(255,225,235,0.07);
-  
+  linear-gradient(
+    145deg,
+    rgba(255,235,242,0.08),
+    rgba(255,215,225,0.04)
+  );
+
   border:
-  1px solid rgba(255,220,230,0.14);
+  1px solid rgba(255,220,230,0.12);
 
-
-  border-radius:24px;
+  border-radius:26px;
 
   overflow:hidden;
 
-  backdrop-filter:blur(12px);
+  backdrop-filter:blur(14px);
 
-  transition:0.4s;
+  transition:0.45s;
 }
 
 .memory-card:hover{
@@ -560,7 +571,7 @@ Pause
 <div class="message fade-ui">
 
 No matter how far apart we are...<br>
-we still look at the same moon.
+we still look at the same moon 🌙
 
 </div>
 
@@ -604,7 +615,7 @@ loop>
 <section class="memory-section">
 
 <h2 class="memory-title">
-Our Favorite Memories
+Our Favorite Memories ✨
 </h2>
 
 <div class="memories">
@@ -612,35 +623,34 @@ Our Favorite Memories
 <div class="memory-card">
 <img src="photos/photo1.jpg">
 <div class="memory-caption">
-My beautiful Moon
+My beautiful Moon 🌙
 </div>
 </div>
 
 <div class="memory-card">
 <img src="photos/photo2.jpg">
 <div class="memory-caption">
-The smile I adore
+The smile I adore ❤️
 </div>
 </div>
 
 <div class="memory-card">
 <img src="photos/photo3.jpg">
 <div class="memory-caption">
-My Princess
+My Princess ✨
 </div>
 </div>
 
 <div class="memory-card">
 <img src="photos/photo4.jpg">
 <div class="memory-caption">
-My comfort person
+My comfort person 🤍
 </div>
 </div>
 
 </div>
 
 </section>
-
 
 <style>
 
@@ -655,7 +665,6 @@ My comfort person
   z-index:5;
 }
 
-
 .letter-box{
 
   max-width:950px;
@@ -664,27 +673,26 @@ My comfort person
 
   background:
   linear-gradient(
-    135deg,
-    rgba(255,235,242,0.10),
-    rgba(255,215,225,0.06)
+    145deg,
+    rgba(255,235,242,0.12),
+    rgba(255,215,225,0.05)
   );
 
   border:
-  1px solid rgba(255,220,230,0.22);
+  1px solid rgba(255,220,230,0.16);
 
-  border-radius:32px;
+  border-radius:34px;
 
-  padding:60px 40px;
+  padding:65px 45px;
 
-  backdrop-filter:blur(20px);
+  backdrop-filter:blur(22px);
 
-  -webkit-backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(22px);
 
   box-shadow:
-  0 0 45px rgba(255,180,210,0.10),
-  0 0 80px rgba(255,160,200,0.05);
+  0 0 35px rgba(255,170,200,0.06),
+  0 0 80px rgba(255,150,190,0.03);
 }
-
 
 .letter-title{
 
@@ -1020,7 +1028,7 @@ addEventListener("resize",resize);
 /* ===== STARS ===== */
 
 let stars =
-[...Array(140)].map(()=>({
+[...Array(160)].map(()=>({
 
   x:Math.random()*innerWidth,
 
@@ -1095,12 +1103,12 @@ function drawScene(){
 
     grad.addColorStop(
       0,
-      `rgba(255,255,255,${c.opacity})`
+      `rgba(255,230,240,${c.opacity})`
     );
 
     grad.addColorStop(
       1,
-      "rgba(255,255,255,0)"
+      "rgba(255,230,240,0)"
     );
 
     ctx.beginPath();
@@ -1142,7 +1150,7 @@ function drawScene(){
     ctx.fillStyle =
 
     `rgba(255,255,255,${
-      0.15+0.85*Math.sin(s.p)
+      0.12+0.75*Math.sin(s.p)
     })`;
 
     ctx.beginPath();
@@ -1164,64 +1172,7 @@ function drawScene(){
 
 drawScene();
 
-/* ===== MOON PHASE ===== */
-
-const moon =
-document.getElementById("moonImg");
-
-function phase(){
-
-  const now = new Date();
-
-  let y = now.getFullYear();
-
-  let m = now.getMonth()+1;
-
-  let d = now.getDate();
-
-  if(m < 3){
-
-    y--;
-
-    m += 12;
-  }
-
-  const k1 =
-  Math.floor(365.25*(y+4712));
-
-  const k2 =
-  Math.floor(30.6001*(m+1));
-
-  const jd =
-  k1+k2+d-1524.5+
-  (now.getHours()/24);
-
-  const syn = 29.53058867;
-
-  let days =
-  (jd-2451549.5)%syn;
-
-  if(days < 0){
-
-    days += syn;
-  }
-
-  const p = days/syn;
-
-  const bright =
-  0.48 + 0.10 *
-  Math.sin(p * Math.PI);
-
-  moon.style.filter =
-  `brightness(${bright})
-   contrast(1.08)`;
-}
-
-phase();
-
-setInterval(phase,60000);
-
-/* ===== FLOATING MOON ===== */
+/* ===== MOON FLOAT ===== */
 
 const wrap =
 document.getElementById("moonWrap");
@@ -1288,4 +1239,5 @@ window.addEventListener("scroll",()=>{
 
 </body>
 </html>
+
 
