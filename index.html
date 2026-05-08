@@ -31,12 +31,13 @@ html{
 
 body{
 
-background:
-radial-gradient(circle at top,
-#2b1055 0%,
-#12001f 35%,
-#05010f 65%,
-#000000 100%);
+  background:
+  radial-gradient(circle at center,
+  #12001f 0%,
+  #05010f 45%,
+  #000000 100%);
+
+  background-attachment:fixed;
 
   font-family:"Poppins",sans-serif;
 
@@ -44,6 +45,7 @@ radial-gradient(circle at top,
 
   overflow-x:hidden;
 }
+
 
 canvas{
 
@@ -660,7 +662,8 @@ My comfort person 🤍
 
   color:#ffdbe5;
 
-  font-family:'Great Vibes',cursive;
+font-family:'Cormorant Garamond',serif;
+
 }
 
 
@@ -1057,7 +1060,39 @@ function drawScene(){
     ctx.fill();
   }
 
-  /* COMETS */
+
+/* ===== REALISTIC COMETS ===== */
+
+const comets = [];
+
+function createComet(){
+
+  comets.push({
+
+    x:-200,
+
+    y:Math.random()*innerHeight*0.5,
+
+    len:Math.random()*180+120,
+
+    speed:Math.random()*14+10,
+
+    life:0,
+
+    opacity:1
+  });
+}
+
+setInterval(()=>{
+
+  if(Math.random() > 0.6){
+
+    createComet();
+  }
+
+},3000);
+
+function drawComets(){
 
   for(let i=comets.length-1;i>=0;i--){
 
@@ -1065,20 +1100,22 @@ function drawScene(){
 
     c.x += c.speed;
 
-    c.y += c.speed;
+    c.y += c.speed*0.45;
 
     c.life++;
+
+    c.opacity -= 0.008;
 
     const grad =
     ctx.createLinearGradient(
       c.x,c.y,
       c.x-c.len,
-      c.y-c.len
+      c.y-c.len*0.45
     );
 
     grad.addColorStop(
       0,
-      "rgba(255,255,255,0.9)"
+      `rgba(255,255,255,${c.opacity})`
     );
 
     grad.addColorStop(
@@ -1096,24 +1133,22 @@ function drawScene(){
 
     ctx.lineTo(
       c.x-c.len,
-      c.y-c.len
+      c.y-c.len*0.45
     );
 
     ctx.stroke();
 
-    if(c.life > 80){
+    if(
+      c.x > innerWidth+300 ||
+      c.y > innerHeight+300 ||
+      c.opacity <= 0
+    ){
 
       comets.splice(i,1);
     }
   }
-
-  requestAnimationFrame(drawScene);
 }
 
-drawScene();
-
-
-  
 /* ===== MOON PHASE ===== */
 
 const moon =
