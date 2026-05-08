@@ -33,17 +33,15 @@ html{
 
 body{
 
-  margin:0;
-
   background:
   radial-gradient(circle at 50% 20%,
   #1a0f36 0%,
   #08021b 60%,
   #020010 100%);
 
-  font-family:"Poppins",Segoe UI,system-ui;
+  font-family:"Poppins",sans-serif;
 
-  color:var(--text);
+  color:white;
 
   overflow-x:hidden;
 }
@@ -82,7 +80,7 @@ canvas{
 
   z-index:999999;
 
-  transition:1.5s;
+  transition:1.2s;
 }
 
 .envelope{
@@ -139,7 +137,7 @@ canvas{
 
 .tap-open{
 
-  margin-top:35px;
+  margin-top:30px;
 
   letter-spacing:5px;
 
@@ -159,33 +157,6 @@ canvas{
   }
 }
 
-/* ===== ROSES ===== */
-
-.rose{
-
-  position:fixed;
-
-  top:-50px;
-
-  z-index:1;
-
-  opacity:0.18;
-
-  pointer-events:none;
-
-  animation:fall linear infinite;
-}
-
-@keyframes fall{
-
-  to{
-
-    transform:
-    translateY(110vh)
-    rotate(360deg);
-  }
-}
-
 /* ===== MOON ===== */
 
 #moonWrap{
@@ -197,17 +168,15 @@ canvas{
 
   transform:translate(-50%,-50%);
 
-  aspect-ratio:1/1;
-
   width:min(68vmin,86vw);
+
+  aspect-ratio:1/1;
 
   border-radius:50%;
 
   overflow:hidden;
 
   z-index:1;
-
-  pointer-events:none;
 }
 
 #moonImg{
@@ -215,23 +184,16 @@ canvas{
   width:100%;
   height:100%;
 
-  border-radius:50%;
-
   object-fit:cover;
 
-  opacity:0.82;
+  border-radius:50%;
 
-  transition:filter .6s ease;
+  opacity:0.78;
 
-  -webkit-mask-image:
-  radial-gradient(circle,
-  rgba(0,0,0,1) 98%,
-  rgba(0,0,0,0) 100%);
+  filter:brightness(0.58);
 
-  mask-image:
-  radial-gradient(circle,
-  rgba(0,0,0,1) 98%,
-  rgba(0,0,0,0) 100%);
+  box-shadow:
+  0 0 80px rgba(255,255,255,0.08);
 }
 
 /* ===== TEXT ===== */
@@ -254,42 +216,37 @@ canvas{
 
 h1{
 
-  margin:0;
-
   font-size:
-  clamp(28px,6vw,58px);
+  clamp(32px,6vw,62px);
 
   font-family:'Great Vibes',cursive;
 
-  color:#fff4ef;
+  color:#fff5f7;
 
   text-shadow:
-  0 0 18px rgba(0,0,0,0.95),
-  0 0 30px rgba(0,0,0,0.7);
+  0 0 18px rgba(0,0,0,0.95);
 }
 
 .subtitle{
 
-  margin-top:8px;
+  margin-top:10px;
 
   font-size:
-  clamp(13px,3vw,18px);
+  clamp(14px,3vw,20px);
 
-  opacity:0.95;
+  color:#fff3f5;
 
-  min-height:40px;
-
-  color:#f8ece7;
+  line-height:1.8;
 
   text-shadow:
-  0 0 12px rgba(0,0,0,0.9);
+  0 0 15px rgba(0,0,0,0.9);
 }
 
 .message{
 
   position:fixed;
 
-  top:68%;
+  top:69%;
   left:50%;
 
   transform:translateX(-50%);
@@ -299,26 +256,21 @@ h1{
   width:90%;
 
   font-size:
-  clamp(14px,3.6vw,22px);
+  clamp(16px,3vw,24px);
+
+  color:#fff7f8;
 
   line-height:1.8;
 
-  opacity:0;
-
-  transition:opacity .6s ease;
-
-  color:#fff4ef;
-
-  font-weight:300;
-
   text-shadow:
-  0 0 18px rgba(0,0,0,0.95),
-  0 0 28px rgba(0,0,0,0.7);
+  0 0 20px rgba(0,0,0,0.95);
 
   z-index:3;
 }
 
-#tap{
+/* ===== MUSIC ===== */
+
+.music-controls{
 
   position:fixed;
 
@@ -327,27 +279,120 @@ h1{
 
   transform:translateX(-50%);
 
-  padding:11px 18px;
+  display:flex;
+
+  gap:12px;
+
+  z-index:999;
+}
+
+.music-controls button{
+
+  padding:11px 22px;
+
+  border:none;
 
   border-radius:999px;
 
   background:
-  rgba(255,255,255,0.1);
+  rgba(255,255,255,0.12);
 
-  color:var(--text);
-
-  border:0;
+  color:white;
 
   cursor:pointer;
 
-  z-index:4;
+  backdrop-filter:blur(10px);
+
+  transition:0.3s;
+}
+
+.music-controls button:hover{
+
+  background:
+  rgba(255,255,255,0.22);
+}
+
+/* ===== HEART ===== */
+
+.secret-heart{
+
+  position:fixed;
+
+  left:20px;
+  bottom:20px;
+
+  font-size:2rem;
+
+  cursor:pointer;
+
+  z-index:9999;
+
+  opacity:0.45;
+}
+
+.secret-screen{
+
+  position:fixed;
+
+  inset:0;
+
+  background:
+  rgba(0,0,0,0.95);
 
   display:none;
 
-  backdrop-filter:blur(10px);
+  justify-content:center;
+
+  align-items:center;
+
+  flex-direction:column;
+
+  text-align:center;
+
+  padding:30px;
+
+  z-index:999999;
 }
 
-/* ===== MEMORY SECTION ===== */
+.secret-screen h2{
+
+  font-size:
+  clamp(42px,7vw,82px);
+
+  font-family:'Great Vibes',cursive;
+
+  color:#ffd8e3;
+}
+
+.secret-screen p{
+
+  margin-top:25px;
+
+  max-width:700px;
+
+  line-height:2;
+
+  font-size:
+  clamp(17px,3vw,24px);
+}
+
+.secret-screen button{
+
+  margin-top:40px;
+
+  padding:12px 28px;
+
+  border:none;
+
+  border-radius:40px;
+
+  background:#a72b45;
+
+  color:white;
+
+  cursor:pointer;
+}
+
 
 .memory-section{
 
@@ -355,8 +400,7 @@ h1{
 
   margin-top:120vh;
 
-  padding:
-  120px 20px;
+  padding:120px 20px;
 
   z-index:5;
 }
@@ -366,9 +410,9 @@ h1{
   text-align:center;
 
   font-size:
-  clamp(36px,5vw,60px);
+  clamp(38px,5vw,62px);
 
-  color:#ffd6df;
+  color:#ffd8e3;
 
   font-family:'Great Vibes',cursive;
 
@@ -392,18 +436,18 @@ h1{
 .memory-card{
 
   background:
-  rgba(255,255,255,0.05);
+  rgba(255,255,255,0.06);
 
   border:
-  1px solid rgba(255,255,255,0.08);
+  1px solid rgba(255,255,255,0.12);
 
-  border-radius:22px;
+  border-radius:24px;
 
   overflow:hidden;
 
-  backdrop-filter:blur(10px);
+  backdrop-filter:blur(12px);
 
-  transition:0.5s;
+  transition:0.4s;
 }
 
 .memory-card:hover{
@@ -412,7 +456,7 @@ h1{
   scale(1.03);
 
   box-shadow:
-  0 0 30px rgba(255,255,255,0.08);
+  0 0 35px rgba(255,255,255,0.08);
 }
 
 .memory-card img{
@@ -430,9 +474,9 @@ h1{
 
   text-align:center;
 
-  color:#ffdce4;
+  color:#ffe4ea;
 
-  font-size:18px;
+  font-size:20px;
 
   font-family:'Great Vibes',cursive;
 }
@@ -462,14 +506,11 @@ h1{
 
 <canvas id="stars"></canvas>
 
-<div id="roseContainer"></div>
-
 <div id="moonWrap">
 
 <img
 id="moonImg"
-src="moon.jpg"
-alt="Moon texture">
+src="moon.jpg">
 
 </div>
 
@@ -485,11 +526,19 @@ id="typed">
 
 </div>
 
-<button id="tap">
-Tap to play ❤️
+<div class="music-controls">
+
+<button id="playBtn">
+Play ❤️
 </button>
 
-<div class="message" id="msg">
+<button id="pauseBtn">
+Pause 🌙
+</button>
+
+</div>
+
+<div class="message">
 
 No matter how far apart we are...<br>
 we still look at the same moon 🌙
@@ -512,8 +561,7 @@ For My Moon
 
 No matter how much distance exists between us...
 
-you are still my peace,
-my comfort,
+you are still my peace, my comfort,
 and my favorite person.
 
 And I will always love you...
@@ -530,7 +578,6 @@ Close
 <audio
 id="bg"
 src="main.mp3"
-preload="auto"
 loop>
 </audio>
 
@@ -575,17 +622,123 @@ My comfort person 🤍
 </section>
 
 
+<style>
+
+.final-section{
+
+  position:relative;
+
+  padding:120px 20px;
+
+  z-index:5;
+}
+
+.letter-box{
+
+  max-width:950px;
+
+  margin:auto;
+
+  background:
+  rgba(255,255,255,0.08);
+
+  border:
+  1px solid rgba(255,255,255,0.14);
+
+  border-radius:32px;
+
+  padding:60px 40px;
+
+  backdrop-filter:blur(18px);
+
+  -webkit-backdrop-filter:blur(18px);
+
+  box-shadow:
+  0 0 40px rgba(0,0,0,0.45);
+}
+
+.letter-title{
+
+  text-align:center;
+
+  font-size:
+  clamp(42px,5vw,68px);
+
+  margin-bottom:45px;
+
+  color:#ffdbe5;
+
+  font-family:'Great Vibes',cursive;
+}
+
+.letter-text{
+
+  line-height:2.1;
+
+  font-size:
+  clamp(16px,2.4vw,22px);
+
+  color:#fff5f7;
+
+  white-space:pre-line;
+
+  text-shadow:
+  0 0 12px rgba(0,0,0,0.45);
+}
+
+.signature{
+
+  margin-top:50px;
+
+  text-align:right;
+
+  font-size:2rem;
+
+  color:#ffd6df;
+
+  font-family:'Great Vibes',cursive;
+}
+
+.ending{
+
+  margin-top:40px;
+
+  text-align:center;
+
+  font-size:2rem;
+
+  color:#ffc7d7;
+
+  font-family:'Great Vibes',cursive;
+}
+
+footer{
+
+  text-align:center;
+
+  padding:35px;
+
+  color:
+  rgba(255,255,255,0.65);
+
+  position:relative;
+
+  z-index:5;
+}
+
+</style>
+
 <section class="final-section">
 
 <div class="letter-box">
 
 <h2 class="letter-title">
-My Last Love Letter ❤️
+My  Love Letter For You ❤️
 </h2>
 
 <div class="letter-text">
 
-My Ai,
+MY LOVE SNEHA,
 
 Sometimes I wonder how someone
 so far away became the closest person to my heart.
@@ -593,13 +746,10 @@ so far away became the closest person to my heart.
 We may live under different skies,
 wait through long nights,
 and love each other through screens and distance...
-
 but somehow your love still reaches me every single day.
 
 You became my peace in chaos.
-
 My comfort in silence.
-
 And the reason ordinary moments
 started feeling beautiful again.
 
@@ -614,7 +764,6 @@ I love every version of you.
 Your smile.
 Your voice.
 Your care.
-
 Even your emotional little moments.
 
 Distance is hard sometimes.
@@ -648,7 +797,6 @@ I will always love you.
 In every late-night thought.
 In every song.
 In every star I look at.
-
 In every version of my future...
 there is always you.
 
@@ -677,8 +825,6 @@ I still choose you.”
 </div>
 
 </section>
-
-<!-- EXTRA MEMORIES -->
 
 <section class="memory-section">
 
@@ -726,6 +872,8 @@ Made by Anand for Sneha 💕
 
 </footer>
 
+
+  
 <script>
 
 /* ===== MUSIC ===== */
@@ -733,21 +881,22 @@ Made by Anand for Sneha 💕
 const bg =
 document.getElementById("bg");
 
-const tap =
-document.getElementById("tap");
+const playBtn =
+document.getElementById("playBtn");
+
+const pauseBtn =
+document.getElementById("pauseBtn");
 
 bg.volume = 0.28;
 
-bg.play().catch(()=>{
-
-  tap.style.display = "block";
-});
-
-tap.onclick = ()=>{
+playBtn.onclick = ()=>{
 
   bg.play();
+};
 
-  tap.style.display = "none";
+pauseBtn.onclick = ()=>{
+
+  bg.pause();
 };
 
 /* ===== ENVELOPE ===== */
@@ -763,12 +912,12 @@ function openLetter(){
 
     intro.style.display = "none";
 
-  },1500);
+  },1200);
 
   bg.play();
 }
 
-/* ===== SECRET SCREEN ===== */
+/* ===== SECRET MESSAGE ===== */
 
 function openSecret(){
 
@@ -879,126 +1028,10 @@ function drawStars(){
 
 requestAnimationFrame(drawStars);
 
-/* ===== ROSES ===== */
-
-const roseContainer =
-document.getElementById("roseContainer");
-
-for(let i=0;i<22;i++){
-
-  const rose =
-  document.createElement("div");
-
-  rose.classList.add("rose");
-
-  rose.innerHTML = "🌹";
-
-  rose.style.left =
-  Math.random()*100 + "vw";
-
-  rose.style.fontSize =
-  (Math.random()*10 + 12) + "px";
-
-  rose.style.animationDuration =
-  (Math.random()*10 + 12) + "s";
-
-  roseContainer.appendChild(rose);
-}
-
-/* ===== MOON PHASE ===== */
-
-const moon =
-document.getElementById("moonImg");
+/* ===== MOON FLOAT ===== */
 
 const wrap =
 document.getElementById("moonWrap");
-
-function phase(){
-
-  const now = new Date();
-
-  let y = now.getFullYear();
-
-  let m = now.getMonth()+1;
-
-  let d = now.getDate();
-
-  if(m < 3){
-
-    y--;
-
-    m += 12;
-  }
-
-  const k1 =
-  Math.floor(365.25*(y+4712));
-
-  const k2 =
-  Math.floor(30.6001*(m+1));
-
-  const jd =
-  k1+k2+d-1524.5+
-  (now.getHours()/24);
-
-  const syn = 29.53058867;
-
-  let days =
-  (jd-2451549.5)%syn;
-
-  if(days < 0){
-
-    days += syn;
-  }
-
-  const p = days/syn;
-
-  const n = p*2-1;
-
-  const off = 50+n*28;
-
-  const shade =
-  Math.abs(n)*0.8;
-
-  const mask =
-
-  `radial-gradient(
-    circle at 50% 50%,
-    rgba(0,0,0,0) 0%,
-    rgba(0,0,0,${
-      0.1+shade*0.3
-    }) 55%,
-    rgba(0,0,0,0.95) 100%
-  ),
-
-  linear-gradient(
-    90deg,
-    rgba(0,0,0,0.95)
-    ${off}%,
-
-    rgba(0,0,0,0)
-    ${off+8}%
-  )`;
-
-  moon.style.webkitMaskImage =
-  mask;
-
-  moon.style.maskImage =
-  mask;
-
-  const bright =
-  0.55 + 0.15 *
-  Math.sin(p * Math.PI);
-
-  moon.style.filter =
-  `brightness(${bright})
-   contrast(1.08)`;
-}
-
-phase();
-
-setInterval(phase,60000);
-
-/* ===== FLOATING MOON ===== */
 
 let t0 = performance.now();
 
@@ -1029,14 +1062,11 @@ function pulse(){
 
 pulse();
 
-/* ===== MESSAGE ===== */
-
-const msg =
-document.getElementById("msg");
-
-msg.style.opacity = 1;
-
 </script>
 
 </body>
 </html>
+
+
+
+  
