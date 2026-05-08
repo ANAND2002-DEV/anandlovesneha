@@ -1,4 +1,3 @@
-html
 <!doctype html>
 <html lang="en">
 
@@ -13,7 +12,7 @@ content="width=device-width,initial-scale=1"/>
 Anand × Sneha — Letters To My Ai ❤️
 </title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Great+Vibes&display=swap" rel="stylesheet">
 
 <style>
 
@@ -188,15 +187,21 @@ canvas{
 
   border-radius:50%;
 
-  opacity:0.78;
-
-  filter:brightness(0.58);
+  opacity:0.82;
 
   box-shadow:
   0 0 80px rgba(255,255,255,0.08);
 }
 
-/* ===== TEXT ===== */
+/* ===== FADE CONTENT ===== */
+
+.fade-ui{
+
+  transition:
+  opacity .7s ease;
+}
+
+/* ===== TITLE ===== */
 
 .titleWrap{
 
@@ -217,11 +222,11 @@ canvas{
 h1{
 
   font-size:
-  clamp(32px,6vw,62px);
+  clamp(34px,6vw,66px);
 
   font-family:'Great Vibes',cursive;
 
-  color:#fff5f7;
+  color:#fff4f7;
 
   text-shadow:
   0 0 18px rgba(0,0,0,0.95);
@@ -234,13 +239,15 @@ h1{
   font-size:
   clamp(14px,3vw,20px);
 
-  color:#fff3f5;
+  color:#fff7f8;
 
   line-height:1.8;
 
   text-shadow:
-  0 0 15px rgba(0,0,0,0.9);
+  0 0 15px rgba(0,0,0,0.95);
 }
+
+/* ===== MESSAGE ===== */
 
 .message{
 
@@ -263,7 +270,7 @@ h1{
   line-height:1.8;
 
   text-shadow:
-  0 0 20px rgba(0,0,0,0.95);
+  0 0 18px rgba(0,0,0,0.95);
 
   z-index:3;
 }
@@ -312,7 +319,8 @@ h1{
   rgba(255,255,255,0.22);
 }
 
-/* ===== HEART ===== */
+
+/* ===== SECRET HEART ===== */
 
 .secret-heart{
 
@@ -376,23 +384,7 @@ h1{
   clamp(17px,3vw,24px);
 }
 
-.secret-screen button{
-
-  margin-top:40px;
-
-  padding:12px 28px;
-
-  border:none;
-
-  border-radius:40px;
-
-  background:#a72b45;
-
-  color:white;
-
-  cursor:pointer;
-}
-
+/* ===== MEMORIES ===== */
 
 .memory-section{
 
@@ -410,7 +402,7 @@ h1{
   text-align:center;
 
   font-size:
-  clamp(38px,5vw,62px);
+  clamp(40px,5vw,66px);
 
   color:#ffd8e3;
 
@@ -454,9 +446,6 @@ h1{
 
   transform:
   scale(1.03);
-
-  box-shadow:
-  0 0 35px rgba(255,255,255,0.08);
 }
 
 .memory-card img{
@@ -514,7 +503,7 @@ src="moon.jpg">
 
 </div>
 
-<div class="titleWrap">
+<div class="titleWrap fade-ui">
 
 <h1>
 Anand Love Sneha 💞
@@ -526,7 +515,7 @@ id="typed">
 
 </div>
 
-<div class="music-controls">
+<div class="music-controls fade-ui">
 
 <button id="playBtn">
 Play ❤️
@@ -538,7 +527,7 @@ Pause 🌙
 
 </div>
 
-<div class="message">
+<div class="message fade-ui">
 
 No matter how far apart we are...<br>
 we still look at the same moon 🌙
@@ -561,7 +550,8 @@ For My Moon
 
 No matter how much distance exists between us...
 
-you are still my peace, my comfort,
+you are still my peace,
+my comfort,
 and my favorite person.
 
 And I will always love you...
@@ -624,6 +614,8 @@ My comfort person 🤍
 
 <style>
 
+/* ===== LETTER ===== */
+
 .final-section{
 
   position:relative;
@@ -662,7 +654,7 @@ My comfort person 🤍
   text-align:center;
 
   font-size:
-  clamp(42px,5vw,68px);
+  clamp(46px,5vw,72px);
 
   margin-bottom:45px;
 
@@ -673,17 +665,23 @@ My comfort person 🤍
 
 .letter-text{
 
-  line-height:2.1;
+  line-height:2.2;
 
   font-size:
-  clamp(16px,2.4vw,22px);
+  clamp(26px,2.8vw,40px);
 
   color:#fff5f7;
 
   white-space:pre-line;
 
   text-shadow:
-  0 0 12px rgba(0,0,0,0.45);
+  0 0 12px rgba(0,0,0,0.35);
+
+  font-family:'Great Vibes',cursive;
+
+  letter-spacing:1px;
+
+  font-weight:normal;
 }
 
 .signature{
@@ -692,7 +690,7 @@ My comfort person 🤍
 
   text-align:right;
 
-  font-size:2rem;
+  font-size:2.3rem;
 
   color:#ffd6df;
 
@@ -705,7 +703,7 @@ My comfort person 🤍
 
   text-align:center;
 
-  font-size:2rem;
+  font-size:2.2rem;
 
   color:#ffc7d7;
 
@@ -733,7 +731,7 @@ footer{
 <div class="letter-box">
 
 <h2 class="letter-title">
-My  Love Letter For You ❤️
+My Love Letter For You ❤️
 </h2>
 
 <div class="letter-text">
@@ -746,6 +744,7 @@ so far away became the closest person to my heart.
 We may live under different skies,
 wait through long nights,
 and love each other through screens and distance...
+
 but somehow your love still reaches me every single day.
 
 You became my peace in chaos.
@@ -873,7 +872,6 @@ Made by Anand for Sneha 💕
 </footer>
 
 
-  
 <script>
 
 /* ===== MUSIC ===== */
@@ -917,7 +915,7 @@ function openLetter(){
   bg.play();
 }
 
-/* ===== SECRET MESSAGE ===== */
+/* ===== SECRET ===== */
 
 function openSecret(){
 
@@ -1028,7 +1026,6 @@ function drawStars(){
 
 requestAnimationFrame(drawStars);
 
-
 /* ===== MOON PHASE ===== */
 
 const moon =
@@ -1086,8 +1083,7 @@ phase();
 
 setInterval(phase,60000);
 
-
-/* ===== MOON FLOAT ===== */
+/* ===== FLOATING MOON ===== */
 
 const wrap =
 document.getElementById("moonWrap");
@@ -1121,11 +1117,39 @@ function pulse(){
 
 pulse();
 
+/* ===== FADE TEXT ON SCROLL ===== */
+
+const fadeElements =
+document.querySelectorAll(".fade-ui");
+
+window.addEventListener("scroll",()=>{
+
+  const y = window.scrollY;
+
+  if(y > 120){
+
+    fadeElements.forEach(el=>{
+
+      el.style.opacity = "0";
+
+      el.style.pointerEvents = "none";
+    });
+
+  } else {
+
+    fadeElements.forEach(el=>{
+
+      el.style.opacity = "1";
+
+      el.style.pointerEvents = "auto";
+    });
+  }
+});
+
 </script>
 
 </body>
 </html>
-
 
 
   
